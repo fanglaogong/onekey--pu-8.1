@@ -36,7 +36,7 @@ echo -e "[Service]\nEnvironment=LD_PRELOAD=/opt/vgpu_unlock-rs/target/release/li
 echo "unlock = false" > /etc/vgpu_unlock/config.toml
 
 # Move GPU driver to PVE /home directory
-mv /root/NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run /home
+mv /root/onekey--vgpu-8.1/NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run /home
 
 # Change to /home directory
 cd /home
@@ -51,8 +51,11 @@ chmod +x NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
 ./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run --dkms
 
 # Clean up downloaded files
-rm -rf /home/NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
-rm -rf /NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run
-
+cd /home
+rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
+rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run
+cd /root
+rm -r onekey--vgpu-8.1
+rm -r vgpu-proxmox
 # Reboot the system
 reboot
