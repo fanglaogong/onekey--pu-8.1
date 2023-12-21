@@ -36,7 +36,7 @@ echo -e "[Service]\nEnvironment=LD_PRELOAD=/opt/vgpu_unlock-rs/target/release/li
 echo "unlock = false" > /etc/vgpu_unlock/config.toml
 
 # Move GPU driver to PVE /home directory
-mv /root/onekey--vgpu-8.1/NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run /home
+mv /root/onekey--pu-8.1/NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run /home
 
 # Change to /home directory
 cd /home
@@ -45,17 +45,17 @@ cd /home
 chmod +x NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
 
 # Apply the patch
-./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run --apply-patch ~/vgpu-proxmox/535.129.03.patch
+./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run --apply-patch ~/onekey--pu-8.1/vgpu-proxmox/535.129.03.patch
 
 # Install the driver with DKMS support
-./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run --dkms
+./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run --dkms -y
 
 # Clean up downloaded files
 cd /home
 rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
 rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run
 cd /root
-rm -r onekey--vgpu-8.1
+rm -r onekey--pu-8.1
 rm -r vgpu-proxmox
 # Reboot the system
 reboot
