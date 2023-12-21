@@ -36,7 +36,7 @@ echo -e "[Service]\nEnvironment=LD_PRELOAD=/opt/vgpu_unlock-rs/target/release/li
 echo "unlock = false" > /etc/vgpu_unlock/config.toml
 
 # Move GPU driver to PVE /home directory
-mv NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run /home
+mv /root/NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run /home
 
 # Change to /home directory
 cd /home
