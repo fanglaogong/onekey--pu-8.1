@@ -50,12 +50,33 @@ chmod +x NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
 # Install the driver with DKMS support
 ./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run --dkms -y
 
-# Clean up downloaded files
-cd /home
-rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
-rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run
-cd /root
-rm -r onekey--pu-8.1
-rm -r vgpu-proxmox
-# Reboot the system
-reboot
+
+#!/bin/bash
+
+echo "输入yes来进行下一步,输入no来跳过!"
+read userInput
+
+if [ "$userInput" = "yes" ]; then
+    echo "Proceeding with the next step..."
+    # 在这里执行下一步操作
+    # Clean up downloaded files
+    cd /home
+    rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
+    rm -r NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run
+    cd /root
+    rm -r onekey--pu-8.1
+    rm -r vgpu-proxmox
+else
+    echo "Exiting."
+fi
+
+echo "输入yes来进行重启,输入no来跳过!"
+read userInput
+if [ "$userInput" = "yes" ]; then
+    echo "Proceeding with the next step..."
+    # 在这里执行下一步操作
+    # Clean up downloaded files
+    reboot
+else
+    echo "Exiting."
+fi
