@@ -48,7 +48,7 @@ chmod +x NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run
 ./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm.run --apply-patch ~/onekey--pu-8.1/vgpu-proxmox/535.129.03.patch
 
 # Install the driver with DKMS support
-./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run --dkms -y
+./NVIDIA-Linux-x86_64-535.129.03-vgpu-kvm-custom.run --dkms
 
 
 #!/bin/bash
